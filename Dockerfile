@@ -4,19 +4,16 @@ LABEL com.cuscuzmachine="wemyfelype@gmail.com"
 ARG BUILD_DATE
 ARG VCS_REF
 
-RUN mkdir -p /usr/src/app
+WORKDIR /app
 
-WORKDIR /usr/src/app
+COPY requirements.txt .
 
-COPY . /usr/src/app
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN apt-get update -y && apt-get install alien git -y
+COPY . .
 
-RUN pip install --upgrade pip
+ENV FLASK_AP=API.py
 
-RUN pip install -r requirements.txt
+EXPOSE 5000
 
-ENV PORT=5000
-EXPOSE 5000:5000
-
-CMD [ "python", "API.py" ]
+CMD [ "flask", "run", "--host=0.0.0.0" ]
