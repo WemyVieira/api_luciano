@@ -14,6 +14,11 @@ joblib_model = joblib.load(joblib_file)
 
 app = Flask(__name__)
 
+@app.route('/')
+def health_check():
+    return "estou vivo"
+
+
 @app.route('/predict',methods=['POST'])
 def predict():
 
