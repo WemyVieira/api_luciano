@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-ENV FLASK_AP=API.py
+ENV FLASK_APP=api.py
 
 EXPOSE 5000
 
