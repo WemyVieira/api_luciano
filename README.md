@@ -1,6 +1,6 @@
 #### Api que predi o perfil ideal de compra para um consórcio
 
-<details>
+<details open>
  <summary><code>POST</code> <code><b>/predict</b></code> </summary>
 
 ##### Parameters
